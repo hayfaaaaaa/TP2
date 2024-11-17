@@ -1,0 +1,9 @@
+<form (ngSubmit)="searchAutoList()">
+  <input type="text" placeholder="Saisissez une marque" [(ngModel)]="searchTerm" name="brand" required />
+  <button type="submit">Search</button>
+</form>
+
+<div *ngFor="let auto of filteredAutos">
+  <p>{{ auto.marque }} - {{ auto.modele }} : {{ auto.prix }} €</p>
+  <button (click)="selectedAuto(auto)">View</button>
+</div>

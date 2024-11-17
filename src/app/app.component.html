@@ -1,3 +1,15 @@
+<app-head-bar></app-head-bar>
+<app-search-bar [autos]="autoList" (selectAutoEvent)="updateAuto($event)"></app-search-bar>
 
-<h1>Welcome to my {{title}}</h1>.
+<!-- Use *ngIf to ensure selectedAuto is not null -->
+<div *ngIf="selectedAuto">
+  <h2>Détails du modèle</h2>
+  <p>Marque: {{ selectedAuto.marque }}</p>
+  <p>Modèle: {{ selectedAuto.modele }}</p>
+  <p>Prix: {{ selectedAuto.prix }} €</p>
+  <p>Puissance: {{ selectedAuto.puissance }} CV</p>
+  <p>Stock disponible: {{ selectedAuto.stock }}</p>
+  <!-- <img [src]="selectedAuto.photo" alt="{{ selectedAuto.modele }}"> -->
+  <img [src]="selectedAuto.photo" alt="{{ selectedAuto.modele }}" *ngIf="selectedAuto">
 
+</div>
